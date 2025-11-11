@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Header from "./components/Header.jsx";
 import Pedal from "./components/Pedal.jsx";
 import Transport from "./components/Transport.jsx";
@@ -16,7 +16,9 @@ const App = () => {
   const [selectedGenre, setSelectedGenre] = useState(initialGenreKey);
   const [selectedSubGenre, setSelectedSubGenre] = useState('');
 
-  const subGenres = CHORD_TEMPLATES[selectedGenre] || {};
+  const subGenres = useMemo(() => {
+    return CHORD_TEMPLATES[selectedGenre] || {};
+  }, [selectedGenre]);
 
   useEffect(() => {
 const firstSubGenreKey = Object.keys(subGenres) [0];
@@ -25,7 +27,7 @@ if (firstSubGenreKey) {
 } else {
   setSelectedSubGenre('');
   }
-}, [selectedGenre]); //runs when selectedGenre is updatedd
+}, [selectedGenre, subGenres]); //runs when selectedGenre is updated
 
   
 //handlers for the transport.
@@ -63,7 +65,8 @@ return (
     onGenerate={generateProgression}
     genres={Object.keys(CHORD_TEMPLATES)}
     subGenres={Object.keys(subGenres)}
-    selectedGenre={selectedSubGenre}
+    selectedGenre={selectedGenre}
+    selectedSubGenre={selectedSubGenre}
     onGenreChange={setSelectedGenre}
     onSubGenreChange={setSelectedSubGenre}
   />
