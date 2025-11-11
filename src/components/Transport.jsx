@@ -22,7 +22,9 @@ const Transport = ({
             {/*display chords separatd or a message if empty*/}
         {progression.length ? progression.join("|") : "No chords yet"}  
         </div>
-{/*genre selection controls*/}
+        {/*manages transport layout*/}
+        <div className="transport-header-controls">
+            {/*main genre positioned on the left side of the transport*/}
 <div className = "genre-controls">
     {/*main genre dropdown (uses props */}
 <select value={selectedGenre} onChange={(e) => onGenreChange(e.target.value)}>
@@ -36,17 +38,17 @@ const Transport = ({
                     <option key={subGenre} value={subGenre}>{subGenre}</option>
                 ))}
             </select>
-
-
         <button onClick={onGenerate}>Generate Chords</button>
         </div>
 
-        <div className = "controls">
+        {/*Play, Save, Export on the top right of transport window.*/}
+        <div className="control-buttons">
+        <button onClick={onSave}>Save</button> 
+        <button onClick = {onExport}>Export</button>   
         <button onClick = {isPlaying ? onStop : onPlay}>
         {isPlaying ? 'Stop' : 'Play'}
         </button>
-        <button onClick = {onSave}>Save</button>
-        <button onClick = {onExport}>Export</button>
+        </div>
         </div>
         </div>
     );

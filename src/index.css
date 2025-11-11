@@ -39,9 +39,8 @@ header {
     padding: 0 24px; /* Space from the screen edges */
 }
 
-/* --- Logo Styling FIX: Target the IMG tag inside the header --- */
+
 header img {
-    /* Constrain the image height relative to the new header height */
     max-height: calc(var(--header-height) + 87px); /* Adjusts to about 70px tall with padding */
     height: auto; /* Maintain aspect ratio */
     width: auto;  
@@ -110,7 +109,6 @@ footer {
   top: 350px;
   left: 50%;
   transform: translateX(-50%);
-  width: 65%; /* Takes up 80% width of the pedal container */
   height: 120px;
   border-radius: 14px;
   background: linear-gradient(180deg, #0f1520 0%, #0b0f17 100%);
@@ -119,15 +117,43 @@ footer {
   
   /* Flexbox styles to center content (buttons/text) */
   display: flex;
+  flex-direction: column;
+  width: 65%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.transport-header-controls {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  width: 100%;
+}
+
+.genre-controls{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chord-display {
+    position: relative; 
+    top: 50%;
+    z-index: 1000;
+    text-align: center;
 }
 
 /* ===== Pedal base ===== */
 .pedal {
   top: 50px;
-  width: 878.57px;               /* tweak to taste */
-  height: 520px;              /* tweak to taste */
+  width: 878.57px;              
+  height: 520px;     
   border-radius: 24px;
   background-image: url('../pedalcolor.png'); 
   background-size: 879px 520px;
