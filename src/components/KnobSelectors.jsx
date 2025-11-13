@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import "index.css";
+import React, { useMemo, useRef, useState } from "react";
+import "./index.css";
 
 
 const Knobs = ({
@@ -9,13 +9,13 @@ const Knobs = ({
     step = 1,
     onChange,
     onChangeEnd,
-    size = 72,
+    size = "md",
     label,
     stops,
     format,
     angleMin = -135,
     angleMax = 135,
-    diabled = false,
+    disabled = false,
 }) => {
     const clamp = (v) => Math.min(max, Math.max(min,v));
     const roundToStep = (v) => Math.round(v / step) * step;
@@ -58,11 +58,81 @@ const setFromDelta = (dy) => {
 // Mouse
 const onMouseDown = (e) => {
     if (disabled) return;
-    e. preventDefault();
+    e.preventDefault();
     setDragging(true);
     startRef.current= {y: e.clientY, v: value };
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
+};
+const onMouseMove = (e) => setFromDelta(e.clientY -startRef.current.y);
+const onMouseUp = () => {
+    setDragging(false);
+    window.removeEventListener("mousemove", onMouseMove);
+    window.removeEventListener("mouseup", onMouseUp);
     onChangeEnd && onChangeEnd();
 };
+
+//Touch
+const onTouchStart = (e) => {
+    if (disabled) return;
+    const t = e.touches[0];
+    setDragging(true);
+    startRef.current = {y: t.clientY, v: value};
+};
+const onTouchMove = (e) => {
+    const t = e.touches[0];
+    setFromDelta(t.clientY -startRef.current.y);
+};
+const onTouchEnd = () => {
+  setDragging(false);
+  onChangeEnd && onChangeEnd();
+};
+
+// Keyboard
+const onKeyDown = (e) => {
+    if(disabled) return;
+    if (e.key === "ArrowUp" || e.key === "ArrowRight") {
+        e.preventDefault();
+        onChange(clamp(roundToStep(value +step)));
+    } else if (e.key === "End") {
+        e.preventDefault();
+        onChange(max);
+    }
+};
+
+return (
+    <div className={`pp-knob-wrap pp-knob--${size}`}>
+        {label && <div className="pp-knob-label">{label}</div>}
+
+        <div
+        role="slider"
+        aria-label={label || "knob"}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-valuenow={value}
+        tabIndex={disabled ? -1 : 0}
+        onKeyDown={onKeyDown}
+        className={[
+            "pp-knob",
+            disabled ? "pp-knob--disabled" : "",
+            dragging ? "pp-knob--drag" : "",
+        ].join(" ").trim()}
+        onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{["--pp-knob-angle"]:`$indicatorAngle}deg`,
+        }}
+        >
+        <div className="pp-knob-face" />
+        <div className="pp-knob-indicator" />
+        </div>
+
+        <div className="pp-knob-value">
+            {format ? format(value) : value}
+        </div>
+        </div>
+    );
 }
+
+export default Knobs;

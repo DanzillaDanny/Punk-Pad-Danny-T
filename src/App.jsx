@@ -5,6 +5,7 @@ import Pedal from "./components/Pedal.jsx";
 import Transport from "./components/Transport.jsx";
 import Footer from "./components/Footer.jsx";
 import { CHORD_TEMPLATES } from "./components/ChordTemplates.jsx";
+import Knobs from "./components/KnobSelectors.jsx";
 
 const App = () => {
 
