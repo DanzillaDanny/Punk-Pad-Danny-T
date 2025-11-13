@@ -5,7 +5,6 @@ import Pedal from "./components/Pedal.jsx";
 import Transport from "./components/Transport.jsx";
 import Footer from "./components/Footer.jsx";
 import { CHORD_TEMPLATES } from "./components/ChordTemplates.jsx";
-import Knobs from "./components/KnobSelectors.jsx";
 
 const App = () => {
 
@@ -13,6 +12,10 @@ const App = () => {
 
   const [isPlaying, setIsPlaying] = useState (false);
   const [progression, setProgression] = useState([]);
+  const [bpm, setBpm] =useState(142);
+  const [keySig, setKeySig] = useState("C");
+ 
+
   //Set initial selected genre to the first key in the template object.
   const [selectedGenre, setSelectedGenre] = useState(initialGenreKey);
   const [selectedSubGenre, setSelectedSubGenre] = useState('');
@@ -55,7 +58,7 @@ return (
 <Header logo= {<img src="/logo.svg" alt="Logo" className="logo" />} />
 <main className="container panel-wrap">
   <section className="panel">
-  <Pedal/>
+  <Pedal bpm={bpm} setBpm={setBpm} keySig={keySig} setKeySig={setKeySig} />
                   <Transport
     isPlaying={isPlaying}
     onPlay={handlePlay}

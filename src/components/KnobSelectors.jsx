@@ -1,5 +1,4 @@
 import React, { useMemo, useRef, useState } from "react";
-import "./index.css";
 
 
 const Knobs = ({
@@ -25,7 +24,7 @@ const Knobs = ({
     const angleRange = angleMax - angleMin;
     const rawAngle = angleMin + pct * angleRange;
 
-//snape the indicator to the discrete stops if provided.
+//snap the indicator to the discrete stops if provided.
     const indicatorAngle = useMemo(() => {
         if (!stops || stops < 2) return rawAngle;
         const inc = angleRange / (stops -1);
@@ -121,9 +120,8 @@ return (
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
-        style={{["--pp-knob-angle"]:`$indicatorAngle}deg`,
-        }}
-        >
+        style={{["--pp-knob-angle"]:`${indicatorAngle}deg`}}
+    >
         <div className="pp-knob-face" />
         <div className="pp-knob-indicator" />
         </div>
