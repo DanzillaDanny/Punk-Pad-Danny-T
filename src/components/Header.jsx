@@ -1,13 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import desktopLogo from "./desktopLogo.png";
 
-const Header = ({ onCreateAccount, onLogin, className = "" }) => {
+const Header = ({className = "" }) => {
   return (
     <header className={"full-width-bar " + className}>
-          <img src={desktopLogo} alt="Punk Pad logo" className="logo" />
-    <nav className = "buttons-container">
-          <button className="btn btn-primary" onClick={onCreateAccount}>Create Account</button>
-          <button className="btn btn-secondary" onClick={onLogin}>Log In</button>
+      {/*the logo links to the home page*/}
+      <Link to="/Home"><img src={desktopLogo} alt="Punk Pad logo" className="logo" />
+      </Link>
+       <nav className = "buttons-container">
+      <Link to= "/Signup" className="btn btn-primary">
+      Create Account
+      </Link>
+      <Link to="/Login" className="btn btn-secondary">
+      Log In
+      </Link>
         </nav>
     </header>
   );

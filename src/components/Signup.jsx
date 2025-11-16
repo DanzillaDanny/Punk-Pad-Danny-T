@@ -25,4 +25,4 @@ const Signup = ({ onSuccess, onSwap }) => {
   );
 }
 
-export default function Signup;
+export default Signup;
