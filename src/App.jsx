@@ -16,10 +16,10 @@ const App = () => {
       <div className="page">
         <Header />
           <Routes>
-            {/* The main functionality of your App is now rendered at the root URL "/" */}
+            {/* The main functionality is rendered at the root URL "/Home" here */}
             <Route path="/Home" element={<Home />} /> 
             
-            {/* Other routes for your new pages */}
+            {/* Other routes for pages */}
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />

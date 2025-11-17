@@ -5,7 +5,7 @@ import { CHORD_TEMPLATES } from "./ChordTemplates.jsx";
 
 //the logic flow of the home page lives here so I can just use App.jsx for routing
 
-const HomePage = () => {
+const Home = () => {
   //state management (useState, useEffect, useMemo)
   const initialGenreKey = Object.keys(CHORD_TEMPLATES)[0];
   const [isPlaying, setIsPlaying] = useState(false);
@@ -71,4 +71,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
