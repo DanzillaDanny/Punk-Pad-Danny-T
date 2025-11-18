@@ -1,107 +1,115 @@
 /* --- Global Resets & Viewport Units --- */
-:root { 
-    --container-width: 1280px; 
-    /* INCREASED HEADER HEIGHT to 100px */
-    --header-height: 150px; 
-    --footer-height: 60px;  
+:root {
+  --container-width: 1280px;
+  /* INCREASED HEADER HEIGHT to 100px */
+  --header-height: 150px;
+  --footer-height: 60px;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    min-height: 100vh;
-    min-height: 100dvh; 
-    font-family: Arial, sans-serif;
-    color: #333; 
-    background-color: #fff;
+html,
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
 }
 
 /* --- Header Styling (Fixed Position, Full Width, Taller) --- */
 header {
-    background-color: #000000; 
-    color: #fff; 
-    width: 100%;
-    height: var(--header-height); /* Uses the new height variable */
-    position: fixed; /* Fixes to the viewport */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10; 
-    
-    /* Flexbox properties ensure vertical centering and right alignment */
-    display: flex;
-    align-items: center; /* Vertically centers all elements (logo and buttons) */
-    justify-content: space-between; /* Pushes first item (logo) left, last item (buttons) right */
-    padding: 0 24px; /* Space from the screen edges */
+  background-color: #000000;
+  color: #fff;
+  width: 100%;
+  height: var(--header-height);
+  /* Uses the new height variable */
+  position: fixed;
+  /* Fixes to the viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  /* Flexbox properties ensure vertical centering and right alignment */
+  display: flex;
+  align-items: center;
+  /* Vertically centers all elements (logo and buttons) */
+  justify-content: space-between;
+  /* Pushes first item (logo) left, last item (buttons) right */
+  padding: 0 24px;
+  /* Space from the screen edges */
 }
 
 
 header img {
-    max-height: calc(var(--header-height) + 87px); /* Adjusts to about 70px tall with padding */
-    height: auto; /* Maintain aspect ratio */
-    width: auto;  
-    max-width: 125%; 
-    display: block; 
-    object-fit: contain; 
+  max-height: calc(var(--header-height) + 87px);
+  /* Adjusts to about 70px tall with padding */
+  height: auto;
+  /* Maintain aspect ratio */
+  width: auto;
+  max-width: 125%;
+  display: block;
+  object-fit: contain;
 }
 
 /* --- Main Content Area Styling (Must account for fixed bars) --- */
 main {
-    background-color: #fff; 
-    /* Ensure main content starts below the new, taller header */
-    padding-top: var(--header-height); 
-    padding-bottom: var(--footer-height); 
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    max-width: var(--container-width);
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    position: relative;
+  background-color: #fff;
+  /* Ensure main content starts below the new, taller header */
+  padding-top: var(--header-height);
+  padding-bottom: var(--footer-height);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 main p {
-    margin-bottom: 1rem;
-    line-height: 1.5;
-    font-size: 1.1rem; 
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 1.1rem;
 }
 
 /* --- Button Styling & Placement --- */
 .buttons-container {
-    display: flex;
-    gap: 3rem; 
+  display: flex;
+  gap: 3rem;
 }
 
 button {
-    padding: 10px 18px;    
-    font-size: 14px;       
-    border-radius: 14px;
-    background-color: #fff; 
-    color: #000; 
-    border: none;
-    cursor: pointer;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 14px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
 }
 
 /* --- Footer Styling (Fixed Position, Very Bottom) --- */
 footer {
-    display: flex;
-    justify-content: center;
-    background-color: #000; 
-    color: #fff; 
-    width: 100%;
-    height: 250px;
-    z-index: 10; 
-    display: flex;
-    align-items: center; 
-    padding: 0 24px; 
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  height: 250px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
 }
 
 /* ===== Transport Window ===== */
@@ -114,9 +122,9 @@ footer {
   height: 120px;
   border-radius: 14px;
   background: linear-gradient(180deg, #0f1520 0%, #0b0f17 100%);
-  box-shadow: inset 0 2px 12px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.06);
-  
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, .6), 0 1px 0 rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .06);
+
   /* Flexbox styles to center content (buttons/text) */
   display: flex;
   flex-direction: column;
@@ -132,7 +140,7 @@ footer {
   width: 100%;
 }
 
-.genre-controls{
+.genre-controls {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -145,39 +153,45 @@ footer {
 }
 
 .chord-display {
-    position: relative; 
-    top: 50%;
-    z-index: 1000;
-    text-align: center;
+  position: relative;
+  top: 50%;
+  z-index: 1000;
+  text-align: center;
 }
 
 /* ===== Pedal base ===== */
 .pedal {
   top: 50px;
-  width: 878.57px;              
-  height: 520px;     
+  width: 878.57px;
+  height: 520px;
   border-radius: 24px;
-  background-image: url('../pedalcolor.png'); 
+  background-image: url('../pedalcolor.png');
   background-size: 879px 520px;
   box-shadow:
-    0 40px 60px rgba(0,0,0,.35),
-    inset 0 2px 0 rgba(255,255,255,.06),
-    inset 0 -3px 0 rgba(0,0,0,.3);
-  border: 5px solid rgba(255,255,255,.06);
+    0 40px 60px rgba(0, 0, 0, .35),
+    inset 0 2px 0 rgba(255, 255, 255, .06),
+    inset 0 -3px 0 rgba(0, 0, 0, .3);
+  border: 5px solid rgba(255, 255, 255, .06);
   position: relative;
   padding: 24px 22px 28px;
 }
 
 /* top bezel line */
-.pedal::before{
-  content:"";
-  position:absolute; left:12px; right:12px; top:px;
-  height: 1px; background: rgba(255,255,255,.06);
+.pedal::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: px;
+  height: 1px;
+  background: rgba(255, 255, 255, .06);
 }
 
 /* ===== LED (status light) ===== */
 .pedal-led {
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #f75027 0%, #d15d2f 35%, #880606 100%);
   box-shadow:
     0 0 12px rgba(59, 255, 59, .6),
@@ -187,58 +201,72 @@ footer {
 }
 
 /* Off state (just toggle this class) */
-.pedal-led.off{
+.pedal-led.off {
   background: radial-gradient(circle at 30% 30%, #9aa3b2 0%, #5e6674 35%, #2e3542 100%);
-  box-shadow: inset 0 0 6px rgba(0,0,0,.6);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .6);
   border-color: #2e3542;
 }
 
 /* ===== Stomp switch ===== */
 
 .pedal-stomp-wrap {
-  display: grid; place-items: center;
-  position: absolute; left: 0; right: 0; bottom: 36px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 36px;
 }
 
 .pedal-stomp {
-  width: 56px; height: 56px; border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   cursor: pointer;
   transition: transform .06s ease, box-shadow .12s ease;
-  display: flex;         
-  justify-content: center; 
-  align-items: center;   
-  padding: 0;            
-  border: none;        
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
   background: transparent;
 }
 
 .pedal-stomp img {
-  width: 120%; height: 120%;
+  width: 120%;
+  height: 120%;
   object-fit: contain;
 }
 
 .pedal-stomp:active {
   transform: translateY(2px);
   box-shadow:
-    0 5px 12px rgba(0,0,0,.4),
-    inset 0 2px 6px rgba(255,255,255,.5),
-    inset 0 -2px 8px rgba(0,0,0,.25);
+    0 5px 12px rgba(0, 0, 0, .4),
+    inset 0 2px 6px rgba(255, 255, 255, .5),
+    inset 0 -2px 8px rgba(0, 0, 0, .25);
 }
 
 /* nice top label area for future knobs/screen labels */
 .pedal-head {
-  display:flex; align-items:center; justify-content:center;
-  height: 64px; gap:10px; color:#d8deea; font-weight:2200; letter-spacing:.04em;
-  text-transform: uppercase; font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  gap: 10px;
+  color: #d8deea;
+  font-weight: 2200;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 48px;
   text-emphasis: bold;
 }
 
 .fadedgradient {
-        -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
-      mask-image: linear-gradient(to right, black 50%, transparent 100%);
-    }
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
 
-    /* ===== Punk Pad: Knobs (minimal) ===== */
+/* ===== Punk Pad: Knobs (minimal) ===== */
 .pp-knob-wrap {
   user-select: none;
   width: var(--pp-knob-size, 72px);
@@ -256,16 +284,16 @@ footer {
   height: var(--pp-knob-size, 72px);
   position: relative;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   background: radial-gradient(circle at 35% 35%, #fff 0%, #e8e8e8 60%, #dcdcdc 100%);
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: box-shadow 120ms ease;
 }
 
 .pp-knob--drag,
 .pp-knob:focus-visible {
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.15), 0 0 0 3px rgba(0, 120, 255, 0.25);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(0, 120, 255, 0.25);
 }
 
 .pp-knob--disabled {
@@ -278,7 +306,7 @@ footer {
   inset: 6px;
   border-radius: 50%;
   background: radial-gradient(circle at 50% 45%, #ffffff, #f5f5f5);
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .pp-knob-indicator {
@@ -300,7 +328,7 @@ footer {
   font-variant-numeric: tabular-nums;
 }
 
-/* ===== Pedal knob row layout (simple) ===== */
+/*Pedal knob row layout*/
 .pedal-knobs {
   display: flex;
   gap: 20px;
@@ -308,6 +336,37 @@ footer {
   margin: 12px 0 16px;
 }
 
+.about-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
+.about-table th, .about-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
 
+.about-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
 
+/*Bulleted feature list for About page*/
+.feature-list {
+  list-style-type: disc; /* Use standard discs for bullets */
+  margin-left: 20px;     /* Indent the list slightly */
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.feature-list li {
+  margin-bottom: 10px;   /* Add spacing between list items */
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.feature-list li strong {
+  color: #ff5733;
+}
