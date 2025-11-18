@@ -17,7 +17,7 @@ const App = () => {
         <Header />
           <Routes>
             {/* The main functionality is rendered at the root URL "/Home" here */}
-            <Route path="/Home" element={<Home />} /> 
+            <Route path="/" element={<Home />} /> 
             
             {/* Other routes for pages */}
             <Route path="/About" element={<About />} />
