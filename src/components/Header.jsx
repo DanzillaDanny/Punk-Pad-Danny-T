@@ -6,7 +6,7 @@ const Header = ({className = "" }) => {
   return (
     <header className={"full-width-bar " + className}>
       {/*the logo links to the home page*/}
-      <Link to="/Home"><img src={desktopLogo} alt="Punk Pad logo" className="logo" />
+      <Link to="/"><img src={desktopLogo} alt="Punk Pad logo" className="logo" />
       </Link>
        <nav className = "buttons-container">
       <Link to= "/Signup" className="btn btn-primary">
