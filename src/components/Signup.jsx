@@ -98,7 +98,7 @@ const validateForm = () => {
 
         <button type="submit" class="submit-btn" disabled={isSubmitting}>
         {isSubmitting ? 'Submitting...' : 'Submit'}  
-        </button>"
+        </button>
     </form>
     </div>
   );
