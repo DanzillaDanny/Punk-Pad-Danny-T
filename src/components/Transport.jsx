@@ -38,7 +38,8 @@ const Transport = ({
                     <option key={subGenre} value={subGenre}>{subGenre}</option>
                 ))}
             </select>
-        <button onClick={onGenerate}>Generate Chords</button>
+            <div className="center-generate-control"></div>
+        <button onClick={onGenerate}className="transport-btn">Generate Chords</button>
         </div>
 
         {/*Play, Save, Export on the top right of transport window.*/}

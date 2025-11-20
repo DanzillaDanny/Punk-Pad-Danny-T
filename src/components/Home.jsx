@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import Pedal from "./Pedal.jsx";
 import Transport from "./Transport.jsx";
 import { CHORD_TEMPLATES } from "./ChordTemplates.jsx";
+import RomanToChord from "./Theory.jsx";
 
 //the logic flow of the home page lives here so I can just use App.jsx for routing
 
@@ -37,16 +38,23 @@ const Home = () => {
   const generateProgression = () => {
     if (selectedSubGenre && subGenres[selectedSubGenre]) {
       const templates = subGenres[selectedSubGenre];
-      const randomIndex =Math.floor(Math.random() * templates.length);
-      setProgression(templates[randomIndex]);
+      const randomIndex = Math.floor(Math.random() * templates.length);
+      
+      // Get the raw Roman numeral progression
+      const romanProgression = templates[randomIndex];
+      
+      // Convert the Roman numerals to actual chord letters
+      const chordLetters = romanProgression.map(roman => RomanToChord(roman, keySig));
+      
+      // Update the state with the final result
+      setProgression(chordLetters);
+      
     } else {
       setProgression(["Select a valid genre/sub-genre"]);
-   }
+    }
   };  
 
-
-  return (
-    // This is the content that appears between Header and Footer
+return (
     <main className="container panel-wrap">
       <section className="panel">
         <Pedal bpm={bpm} setBpm={setBpm} keySig={keySig} setKeySig={setKeySig} />

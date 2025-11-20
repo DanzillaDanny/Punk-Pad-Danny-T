@@ -9,10 +9,10 @@ const Header = ({className = "" }) => {
       <Link to="/"><img src={desktopLogo} alt="Punk Pad logo" className="logo" />
       </Link>
        <nav className = "buttons-container">
-      <Link to= "/Signup" className="btn btn-primary">
+      <Link to= "/Signup" className="header-link primary-punk-btn">
       Create Account
       </Link>
-      <Link to="/Login" className="btn btn-secondary">
+      <Link to="/Login" className="header-link secondary-punk-btn">
       Log In
       </Link>
         </nav>

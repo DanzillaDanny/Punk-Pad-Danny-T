@@ -7,6 +7,7 @@ import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
+import UserAccountPage from "./components/userAccountPage.jsx";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/About" element={<About />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
+            <Route path="/UserAccountPage" element={<UserAccountPage />} /> 
           </Routes>
         <Footer />
         <div className="spacer-bottom" />

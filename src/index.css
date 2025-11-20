@@ -1,7 +1,6 @@
 /* --- Global Resets & Viewport Units --- */
 :root {
   --container-width: 1280px;
-  /* INCREASED HEADER HEIGHT to 100px */
   --header-height: 150px;
   --footer-height: 60px;
 }
@@ -21,36 +20,72 @@ body {
   background-color: #fff;
 }
 
-/* --- Header Styling (Fixed Position, Full Width, Taller) --- */
 header {
   background-color: #000000;
   color: #fff;
   width: 100%;
   height: var(--header-height);
-  /* Uses the new height variable */
   position: fixed;
-  /* Fixes to the viewport */
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
 
-  /* Flexbox properties ensure vertical centering and right alignment */
+
   display: flex;
   align-items: center;
-  /* Vertically centers all elements (logo and buttons) */
   justify-content: space-between;
-  /* Pushes first item (logo) left, last item (buttons) right */
   padding: 0 24px;
-  /* Space from the screen edges */
+}
+
+/* --- Punk Header Links --- */
+
+.header-link {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  border: 2px solid;
+  border-radius: 0; 
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  transform: skewX(-5deg); 
+}
+
+/* Primary Button */
+.primary-punk-btn {
+  color: #ffffff; /* LED Border color */
+  background-color: transparent;
+  border-color: #38ecd4;
+}
+
+.primary-punk-btn:hover {
+  background-color: #0a7a0a; /* Invert colors on hover */
+  color: #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.7);
+}
+
+/* Secondary Button */
+.secondary-punk-btn {
+  color: #ffffff; 
+  background-color: transparent;
+  border-color: #ffa7dd;
+}
+
+.secondary-punk-btn:hover {
+  background-color: #f75027; /* Invert colors on hover */
+  color: #000;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.7);
 }
 
 
 header img {
   max-height: calc(var(--header-height) + 87px);
-  /* Adjusts to about 70px tall with padding */
   height: auto;
-  /* Maintain aspect ratio */
   width: auto;
   max-width: 125%;
   display: block;
@@ -60,7 +95,6 @@ header img {
 /* --- Main Content Area Styling (Must account for fixed bars) --- */
 main {
   background-color: #fff;
-  /* Ensure main content starts below the new, taller header */
   padding-top: var(--header-height);
   padding-bottom: var(--footer-height);
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -98,7 +132,7 @@ button {
   cursor: pointer;
 }
 
-/* --- Footer Styling (Fixed Position, Very Bottom) --- */
+/* Footer Styling  */
 footer {
   display: flex;
   justify-content: center;
@@ -124,8 +158,6 @@ footer {
   background: linear-gradient(180deg, #0f1520 0%, #0b0f17 100%);
   box-shadow: inset 0 2px 12px rgba(0, 0, 0, .6), 0 1px 0 rgba(255, 255, 255, .05);
   border: 1px solid rgba(255, 255, 255, .06);
-
-  /* Flexbox styles to center content (buttons/text) */
   display: flex;
   flex-direction: column;
   width: 65%;
@@ -138,26 +170,72 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #ffffff;
+  padding: 10px; 
+}
+
+.center-generate-control {
+    margin-left: 70px; 
 }
 
 .genre-controls {
+  color: #ffffff;
+  z-index: 1000;
   display: flex;
   gap: 10px;
   align-items: center;
+  background-color: transparent;
+  border-color: #000000;
 }
 
 .control-buttons {
+  z-index: 1000;
+  color: #ffffff;
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.chord-display {
-  position: relative;
-  top: 50%;
-  z-index: 1000;
-  text-align: center;
+.genre-controls select,
+.genre-controls button,
+.control-buttons button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #0f1520; 
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace; /* Digital font */
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  padding: 8px 12px; 
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; 
+  height: fit-content; /*align items correctly in the flexbox */
 }
+
+.genre-controls select:hover,
+.genre-controls button:hover,
+.control-buttons button:hover {
+  border-color: #ffffff; 
+}
+
+
+.chord-display {
+  position: absolute;
+  top: 60%;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+
+  font-family: Arial, sans-serif;
+  font-size: 40px; 
+  color: #ffffff;
+  text-align: center; 
+  width: 100%;
+}
+
 
 /* ===== Pedal base ===== */
 .pedal {
@@ -251,7 +329,7 @@ footer {
     inset 0 -2px 8px rgba(0, 0, 0, .25);
 }
 
-/* nice top label area for future knobs/screen labels */
+/* nice top label area */
 .pedal-head {
   display: flex;
   align-items: center;
@@ -271,7 +349,7 @@ footer {
   mask-image: linear-gradient(to right, black 50%, transparent 100%);
 }
 
-/* ===== Punk Pad: Knobs (minimal) ===== */
+/* ===== Punk Pad: Knobs ===== */
 .pp-knob-wrap {
   user-select: none;
   width: var(--pp-knob-size, 72px);
@@ -360,14 +438,14 @@ footer {
 
 /*Bulleted feature list for About page*/
 .feature-list {
-  list-style-type: disc; /* Use standard discs for bullets */
-  margin-left: 20px;     /* Indent the list slightly */
+  list-style-type: disc; 
+  margin-left: 20px;     
   padding: 0;
   margin-bottom: 20px;
 }
 
 .feature-list li {
-  margin-bottom: 10px;   /* Add spacing between list items */
+  margin-bottom: 10px;   
   font-size: 1rem;
   line-height: 1.4;
 }
@@ -382,18 +460,18 @@ footer {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f2f5; /* Light gray background */
-  padding: 20px; /* Space from screen edges on mobile */
+  background-color: #f0f2f5; 
+  padding: 20px; 
 }
 
-/* Styles for the form itself (card effect) */
+/* Styles for the form */
 .signup-form {
   background: #fff;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; /* Prevents the form from becoming too wide on large screens */
+  max-width: 400px; 
   box-sizing: border-box;
 }
 
@@ -411,26 +489,26 @@ footer {
 
 /* Styling for labels */
 .form-group label {
-  display: block; /* Makes label sit above the input */
+  display: block; 
   margin-bottom: 8px;
   font-weight: bold;
   color: #555;
 }
 
-/* Styling for all input fields (text, email, password) */
+/* Styling for all input fields */
 .form-group input {
   width: 100%;
-  padding: 12px; /* Large enough touch target for mobile */
+  padding: 12px; 
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding doesn't increase total width */
+  box-sizing: border-box; 
   font-size: 1rem;
 }
 
 /* Highlight input fields when the user clicks on them */
 .form-group input:focus {
-  border-color: #007bff; /* Primary brand color on focus */
-  outline: none; /* Removes default browser outline */
+  border-color: #007bff; 
+  outline: none; 
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
@@ -438,7 +516,7 @@ footer {
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background-color: #38ecd4; /* Primary brand color */
+  background-color: #38ecd4; 
   color: white;
   border: none;
   border-radius: 4px;
