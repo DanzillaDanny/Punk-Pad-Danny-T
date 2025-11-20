@@ -2,7 +2,7 @@
 :root {
   --container-width: 1280px;
   --header-height: 150px;
-  --footer-height: 60px;
+  --footer-height: 200px;
 }
 
 * {
@@ -139,12 +139,36 @@ footer {
   background-color: #000;
   color: #fff;
   width: 100%;
-  height: 250px;
+  height: 200px;
   z-index: 10;
   display: flex;
   align-items: center;
   padding: 0 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 15px;
 }
+
+.about {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 2px solid #38ecd4; 
+  border-radius: 0; 
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  transform: skewX(-5deg); 
+}
+
 
 /* ===== Transport Window ===== */
 .transport-window {
@@ -177,7 +201,7 @@ footer {
 }
 
 .center-generate-control {
-    margin-left: 70px; 
+    margin-left: -70px; 
 }
 
 .genre-controls {
@@ -200,20 +224,22 @@ footer {
 
 .genre-controls select,
 .genre-controls button,
-.control-buttons button {
+.control-buttons button
+.center-generate-control-button,
+.transport-btn {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-color: #0f1520; 
   color: #ffffff;
-  font-family: 'Courier New', Courier, monospace; /* Digital font */
+  font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
   border: 1px solid rgba(255, 255, 255, .3);
   padding: 8px 12px; 
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box; 
-  height: fit-content; /*align items correctly in the flexbox */
+  height: fit-content;
 }
 
 .genre-controls select:hover,
@@ -225,12 +251,12 @@ footer {
 
 .chord-display {
   position: absolute;
-  top: 60%;
+  top: 65%;
   left: 50%; 
-  transform: translate(-50%, -50%); 
-
-  font-family: Arial, sans-serif;
-  font-size: 40px; 
+  transform: translate(-50%, -50%);
+  font-family: 'Consolas', 'Courier New',Courier, monospace;
+  text-transform: uppercase;
+  font-size: 60px; 
   color: #ffffff;
   text-align: center; 
   width: 100%;

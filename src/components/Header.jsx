@@ -15,7 +15,10 @@ const Header = ({className = "" }) => {
       <Link to="/Login" className="header-link secondary-punk-btn">
       Log In
       </Link>
-        </nav>
+      <Link to= "/UserAccountPage" className="header-link primary-punk-btn">
+      User
+      </Link>
+      </nav>
     </header>
   );
 };

@@ -6,10 +6,10 @@ import RomanToChord from "./Theory.jsx";
 
 //the logic flow of the home page lives here so I can just use App.jsx for routing
 
-const Home = () => {
+const Home = ({setFavorites}) => { // Accept setFavorites prop
   //state management (useState, useEffect, useMemo)
   const initialGenreKey = Object.keys(CHORD_TEMPLATES)[0];
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false); // Added isPlaying state back
   const [progression, setProgression] = useState([]);
   const [bpm, setBpm] = useState(142);
   const [keySig, setKeySig] = useState("C");
@@ -30,16 +30,35 @@ const Home = () => {
     }
   }, [selectedGenre, subGenres]);
 
-  //Handlers for transport/logic
+  // Handlers for transport/logic (Separated correctly)
   const handlePlay = () => setIsPlaying(true);
   const handleStop = () => setIsPlaying(false);
-  const handleSave = () => console.log("Saving...");
   const handleExport = () => console.log ("Exporting...");
+
+  // handleSave function defined in the correct scope
+  const handleSave = () => {
+    if (progression.length === 0 || typeof progression === 'string' || progression.includes('Select a valid')) {
+        alert("Please generate a valid progression first.");
+        return;
+    }
+
+    const newFavorite = {
+        id: Date.now(), 
+        name: `${selectedGenre} - ${selectedSubGenre} in ${keySig}`, 
+        chords: progression 
+    };
+    
+    setFavorites(prevFavorites => [...prevFavorites, newFavorite]); 
+    alert("Progression added to favorites!");
+    console.log("Saving this object:", newFavorite);
+  };
+  
+  // generateProgression function defined in the correct scope
   const generateProgression = () => {
     if (selectedSubGenre && subGenres[selectedSubGenre]) {
       const templates = subGenres[selectedSubGenre];
       const randomIndex = Math.floor(Math.random() * templates.length);
-      
+            
       // Get the raw Roman numeral progression
       const romanProgression = templates[randomIndex];
       
@@ -59,11 +78,11 @@ return (
       <section className="panel">
         <Pedal bpm={bpm} setBpm={setBpm} keySig={keySig} setKeySig={setKeySig} />
         <Transport
-          isPlaying={isPlaying}
-          onPlay={handlePlay}
-          onStop={handleStop}
-          onSave={handleSave}
+          isPlaying={isPlaying} // Passed isPlaying state
+          onPlay={handlePlay} // Passed Play handler
+          onStop={handleStop} // Passed Stop handler
           onExport={handleExport}
+          onSave={handleSave} // Passed Save handler correctly
           progression={progression}
           onGenerate={generateProgression}
           genres={Object.keys(CHORD_TEMPLATES)}
