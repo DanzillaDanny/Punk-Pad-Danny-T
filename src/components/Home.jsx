@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Pedal from "./Pedal.jsx";
 import Transport from "./Transport.jsx";
-import { CHORD_TEMPLATES } from "./ChordTemplates.jsx";
+import CHORD_TEMPLATES from "./ChordTemplates.jsx";
 import RomanToChord from "./Theory.jsx";
 
 //the logic flow of the home page lives here so I can just use App.jsx for routing

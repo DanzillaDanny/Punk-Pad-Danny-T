@@ -27,15 +27,10 @@ const Login = () => {
             <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} 
               required minLength={6}/>
           </div>
-          <button type="submit" 
-            className="submit-btn">
-          </button>
+          <button type="submit" className="submit-btn">Log In</button>
         </form>
-        <p className="signup-link">
-          No account? 
-          <Link to="/signup" className="link">
-            Create Account
-          </Link>
+        <p className="signup-link">No account? 
+          <Link to="/signup" className="link">Create Account</Link>
         </p>
       </section>
     </div>
