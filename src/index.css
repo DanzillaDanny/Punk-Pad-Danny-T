@@ -3,6 +3,7 @@
   --container-width: 1280px;
   --header-height: 150px;
   --footer-height: 200px;
+  padding-top: 20px;
 }
 
 * {
@@ -416,10 +417,26 @@ footer {
 }
 
 /*About Page*/
+.about-title {
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-intro {
+  display: flex;
+  justify-content: center;
+}
+
+.about-subtitle {
+  display: flex;
+  justify-content: center;
+}
+
 .about-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 5%;
 }
 
 .about-table th, .about-table td {
