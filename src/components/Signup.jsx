@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
- // State variables to store input values
+  const navigate = useNavigate();
+ // State variables for user input
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // State variables for displaying validation errors to the user
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
 const validateForm = () => {
     let newErrors = {};
@@ -30,37 +31,17 @@ const validateForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default browser form submission
+    event.preventDefault(); // Prevent default browser page reload
 
     if (validateForm()) {
-      setIsSubmitting(true);
-      // Logic for sending data to the backend API
-      try {
-        const response = await fetch('/api/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username, email, password }),
-        });
-
-        if (response.ok) {
-          // Handle successful signup (e.g., redirect to login or dashboard)
-          console.log('Sign up successful!');
-          // Redirect the user
-        } else {
-          // Handle backend validation errors (e.g., email already exists)
-          const data = await response.json();
-          setErrors({ api: data.message || 'An error occurred during signup.' });
-        }
-      } catch {
-        setErrors({ api: 'Network error, please try again.' });
-      } finally {
-        setIsSubmitting(false);
+      { username, email, password };
+      // Clear form fields
+      setUsername('');
+      setEmail('');
+      setPassword('');
+      navigate("/"); //take user to home page if login is successful.
     }
-  }
-};
-
+  };
 
   return (
     <div class= "signup-container">
@@ -69,25 +50,20 @@ const validateForm = () => {
       <h2>Create account</h2>
       {/*display general errors in CSS*/}
       {errors.api && <p className="error-text">{errors.api}</p>}
-
       <div className="form-group">
         <label for="username">Username(min 6 chars)</label>
         <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}
         required minLength="6"
         />
-
-             {errors.username && <p className="error-text">{errors.username}</p>}
+          {errors.username && <p className="error-text">{errors.username}</p>}
         </div>
-
         <div className="form-group">
         <label htmlFor="email">Email</label>
         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}
         required
         />
-
-            {errors.email && <p className="error-text">{errors.email}</p>}
+          {errors.email && <p className="error-text">{errors.email}</p>}
         </div>
-
         <div className="form-group">
         <label htmlFor="password">Password(min 6 chars)</label>
         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}
@@ -95,9 +71,8 @@ const validateForm = () => {
         />
           {errors.password && <p className="error-text">{errors.password}</p>}
         </div>
-
-        <button type="submit" class="submit-btn" disabled={isSubmitting}>
-        {isSubmitting ? 'Submitting...' : 'Submit'}  
+        <button type="submit" class="submit-btn">
+          Submit
         </button>
     </form>
     </div>

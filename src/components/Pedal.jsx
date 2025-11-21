@@ -8,7 +8,6 @@ const Pedal = ({bpm, setBpm, keySig, setKeySig}) => {
 
   return (
     <div className="pedal">
-      {/*change to logo later or different text?*/}
       <div className="pedal-head">Punk Pad</div>
       <div className="pedal-knobs">
   <Knobs
@@ -25,14 +24,13 @@ const Pedal = ({bpm, setBpm, keySig, setKeySig}) => {
   <Knobs
     label="BPM"
     value={bpm}
-    min={60}
-    max={220}
+    min={80}
+    max={300}
     step={1}
     onChange={setBpm}
     size="md"
   />
-</div>
-
+  </div>
       {/* LED */}
       <div className={`pedal-led ${on ? "" : "off"}`} aria-label={on ? "On" : "Off"} />
       {/* Stomp switch */}
