@@ -6,10 +6,9 @@ import RomanToChord from "./Theory.jsx";
 
 //the logic flow of the home page lives here so I can just use App.jsx for routing
 
-const Home = ({setFavorites}) => { // Accept setFavorites prop
+const Home = ({setFavorites}) => {
   //state management (useState, useEffect, useMemo)
   const initialGenreKey = Object.keys(CHORD_TEMPLATES)[0];
-  const [isPlaying, setIsPlaying] = useState(false); // Added isPlaying state back
   const [progression, setProgression] = useState([]);
   const [bpm, setBpm] = useState(142);
   const [keySig, setKeySig] = useState("C");
@@ -29,11 +28,6 @@ const Home = ({setFavorites}) => { // Accept setFavorites prop
       setSelectedSubGenre('');
     }
   }, [selectedGenre, subGenres]);
-
-  // Handlers for transport/logic (Separated correctly)
-  const handlePlay = () => setIsPlaying(true);
-  const handleStop = () => setIsPlaying(false);
-  const handleExport = () => console.log ("Exporting...");
 
   // handleSave function defined in the correct scope
   const handleSave = () => {
@@ -78,10 +72,6 @@ return (
       <section className="panel">
         <Pedal bpm={bpm} setBpm={setBpm} keySig={keySig} setKeySig={setKeySig} />
         <Transport
-          isPlaying={isPlaying} // Passed isPlaying state
-          onPlay={handlePlay} // Passed Play handler
-          onStop={handleStop} // Passed Stop handler
-          onExport={handleExport}
           onSave={handleSave} // Passed Save handler correctly
           progression={progression}
           onGenerate={generateProgression}
