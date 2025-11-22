@@ -1,0 +1,91 @@
+/* ===== Transport Window ===== */
+.transport-window {
+  position: absolute;
+  z-index: 1000;
+  top: 425px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 120px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0f1520 0%, #0b0f17 100%);
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, .6), 0 1px 0 rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .06);
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.transport-header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #ffffff;
+  background-color: transparent;
+  border-color: #ffffff;
+  padding: 10px; 
+}
+
+.center-generate-control {
+    margin-left: -70px; 
+}
+
+.genre-controls {
+  color: #ffffff;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: transparent;
+  border-color: #000000;
+}
+
+.control-buttons {
+  z-index: 1000;
+  color: #ffffff;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.genre-controls select,
+.genre-controls button,
+.control-buttons button
+.center-generate-control-button,
+.transport-btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #0f1520; 
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  padding: 8px 12px; 
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; 
+  height: fit-content;
+}
+
+.genre-controls select:hover,
+.genre-controls button:hover,
+.control-buttons button:hover {
+  border-color: #ffffff; 
+}
+
+
+.chord-display {
+  position: absolute;
+  top: 65%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  font-family: 'Consolas', 'Courier New',Courier, monospace;
+  text-transform: uppercase;
+  font-size: 60px; 
+  color: #ffffff;
+  text-align: center; 
+  width: 100%;
+}

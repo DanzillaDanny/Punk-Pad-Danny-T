@@ -1,4 +1,5 @@
 import React from "react";
+import "./About.css"
 
 const About = () => {
     return(
@@ -33,8 +34,8 @@ const About = () => {
                     <td>Choose any key that fits within your vocal range or preferred sound!</td>
                 </tr>    
                 <tr>
-                    <td>Export/Save</td>
-                    <td>Save and export your audio file to import into your DAW sessions!</td>
+                    <td>Add Favorites</td>
+                    <td>Add your favorite progressions to your user account to reference later!</td>
                 </tr>    
             </tbody>
         </table>    
