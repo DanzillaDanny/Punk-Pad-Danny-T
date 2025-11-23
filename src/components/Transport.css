@@ -1,10 +1,7 @@
 /* ===== Transport Window ===== */
 .transport-window {
-  position: absolute;
-  z-index: 1000;
-  top: 425px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  z-index: 10;
   height: 120px;
   border-radius: 14px;
   background: linear-gradient(180deg, #0f1520 0%, #0b0f17 100%);
@@ -12,20 +9,20 @@
   border: 1px solid rgba(255, 255, 255, .06);
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 45%;
   box-sizing: border-box;
-  margin: 0 auto;
+  top: -400px;
 }
 
 .transport-header-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 95%;
   color: #ffffff;
   background-color: transparent;
   border-color: #ffffff;
-  padding: 10px; 
+  padding: 8px 12px;
 }
 
 .center-generate-control {
@@ -88,4 +85,34 @@
   color: #ffffff;
   text-align: center; 
   width: 100%;
+}
+
+@media (max-width: 480px) {
+  .transport-window {
+    position: relative;      
+    transform: translateX(-8.7%);     
+    top: -160px;              
+    width: 90%;               
+    height: 80px;
+  }
+
+  .transport-header-controls {
+    display: flex;
+    align-items: center;
+}
+
+  .genre-controls select,
+  .genre-controls button,
+  .control-buttons button,
+  .center-generate-control-button,
+  .transport-btn {
+    font-size: 8px;
+    padding: 0px;
+    max-width: 140px;
+  }
+
+  .chord-display {
+    font-size: 40px;          
+    top: 55%;
+  }
 }

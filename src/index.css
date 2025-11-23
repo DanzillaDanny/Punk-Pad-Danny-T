@@ -1,17 +1,10 @@
-:root {
-  --container-width: 1280px;
-  --header-height: 150px;
-  --footer-height: 150px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html,
 body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   font-family: Arial, sans-serif;
@@ -19,74 +12,12 @@ body {
   background-color: #fff;
 }
 
-header {
-  background-color: #000000;
-  color: #fff;
-  width: 100%;
-  height: var(--header-height);
-  position: static;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-}
-
-.header-link {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 18px;
-  font-weight: bold;
-  font-size: 14px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  border: 2px solid;
-  border-radius: 0; 
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-  transform: skewX(-5deg); 
-}
-.primary-punk-btn {
-  position: relative;
-  color: #ffffff;
-  background-color: transparent;
-  border-color: #38ecd4;
-}
-.secondary-punk-btn {
-  color: #ffffff; 
-  background-color: transparent;
-  border-color: #ffa7dd;
-}
-
-header img {
-  max-height: calc(var(--header-height) + 87px);
-  height: auto;
-  width: auto;
-  max-width: 125%;
-  display: block;
-  object-fit: contain;
-}
-
-/*Main Content Area Styling */
 main {
   background-color: #fff;
-  padding-top: var(--header-height);
-  padding-bottom: var(--footer-height);
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
   max-width: var(--container-width);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 100%;
   padding-left: 24px;
-  padding-right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
 }
 
@@ -108,6 +39,12 @@ button {
   color: #000;
   border: none;
   cursor: pointer;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* centers Pedal + Transport horizontally */
 }
 
 /* Container for the entire signup page layout */
@@ -185,14 +122,6 @@ button {
 .submit-btn:disabled {
   background-color: #aaa;
   cursor: not-allowed;
-}
-
-/* Styling for error messages */
-.error-text {
-  color: #dc3545; 
-  font-size: 0.85rem;
-  margin-top: 5px;
-  margin-bottom: 15px;
 }
 
 

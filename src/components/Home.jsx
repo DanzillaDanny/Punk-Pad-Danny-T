@@ -82,7 +82,6 @@ return (
           onGenreChange={setSelectedGenre}
           onSubGenreChange={setSelectedSubGenre}
         />
-        <div className="pedal-spacer" />
       </section>
     </main>
   );

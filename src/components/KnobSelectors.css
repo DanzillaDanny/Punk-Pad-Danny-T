@@ -84,14 +84,15 @@
   }
 
   .pedal-knobs {
-    transform: translateY(-18px);
-    gap: 25px;            
+    transform: translateY(-30px);
+    gap: 40px;            
     margin: 8px 0 12px;
   }
 
   .pp-knob-label,
   .pp-knob-value {
-    font-size: 9px;         
+    font-size: 9px;  
+    margin-bottom: 3px;       
   }
 }
 

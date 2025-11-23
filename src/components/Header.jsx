@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import desktopLogo from "./desktopLogo.png";
+import "./Header.css";
 
-const Header = ({className = "" }) => {
+const Header = () => {
   return (
-    <header className={"full-width-bar " + className}>
+    <header>
       {/*the logo links to the home page*/}
       <Link to="/"><img src={desktopLogo} alt="Punk Pad logo" className="logo" />
       </Link>

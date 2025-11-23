@@ -1,24 +1,33 @@
+/* === Base header (desktop) === */
 header {
-  background-color: #000000;
+  background-color: #000;
   color: #fff;
   width: 100%;
-  height: var(--header-height);
-  position: static;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-
-
-  display: flex;
-  align-items: center;
+  height: 250px;              
+  display: flex;             
+  align-items: flex-start; 
+  margin-top: auto;      
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+header .logo {
+  display: block;            
+  height: 307px;              
+  width: auto;
+  object-fit: contain;
+}
+
+.buttons-container {
+  display: flex;
+  margin-top: auto;
+  gap: 1.5rem;
+  transform: translateY(-3px);
 }
 
 .header-link {
   text-decoration: none;
-  display: inline-block;
+  color: #fff;
   padding: 8px 18px;
   font-weight: bold;
   font-size: 14px;
@@ -26,26 +35,37 @@ header {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   border: 2px solid;
-  border-radius: 0; 
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-  transform: skewX(-5deg); 
+  border-radius: 0;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  transform: skewX(-5deg);
 }
+
 .primary-punk-btn {
-  color: #ffffff;
-  background-color: transparent;
   border-color: #38ecd4;
 }
+
 .secondary-punk-btn {
-  color: #ffffff; 
-  background-color: transparent;
   border-color: #ffa7dd;
 }
 
-header img {
-  max-height: calc(var(--header-height) + 87px);
-  height: auto;
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 12px;
+    margin: 0;
+  }
+
+  header .logo {
+  display: block;            
+  height: 150px;              
   width: auto;
-  max-width: 125%;
-  display: block;
   object-fit: contain;
+}
+
+  .buttons-container {
+    margin-top: 6px;
+    gap: 0.5rem;
+  }
 }
