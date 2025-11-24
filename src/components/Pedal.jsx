@@ -49,7 +49,7 @@ const Pedal = ({ bpm, setBpm, keySig, setKeySig }) => {
             aria-pressed={on}
             onClick={() => setOn((v) => !v)}
           >
-            <img src="/chromeButton.png" alt="stomp switch" />
+            <img src="./chromeButton.png" alt="stomp switch" />
           </button>
         </div>
       </div>

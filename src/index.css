@@ -1,16 +1,16 @@
 html,
 body {
- font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 100vh;
-  min-height: 100dvh;
+  /* min-height: 100dvh;  // you can keep this if you want dynamic vh */
   color: #333;
   background-color: #fff;
   overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -27,6 +27,7 @@ main p {
   line-height: 1.5;
   font-size: 1.1rem;
 }
+
 .buttons-container {
   display: flex;
   gap: 3rem;
@@ -45,7 +46,7 @@ button {
 .panel {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
 }
 
 .signup-container {
@@ -56,14 +57,13 @@ button {
   background-color: #f0f2f5;
 }
 
-
 .signup-form {
   background: #fff;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
   box-sizing: border-box;
 }
 
@@ -73,38 +73,37 @@ button {
 }
 
 .form-group label {
-  display: block; 
+  display: block;
   margin-bottom: 8px;
-  font-weight: bold;
   color: #555;
 }
 
 .form-group input {
   width: 100%;
-  padding: 12px; 
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   font-size: 1rem;
 }
 
 .form-group input:focus {
-  border-color: #007bff; 
-  outline: none; 
+  border-color: #007bff;
+  outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background-color: #38ecd4; 
+  background-color: #38ecd4;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1.1rem;
   margin-top: 20px;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 
 .submit-btn:hover {
@@ -117,21 +116,17 @@ button {
 }
 
 @media (max-width: 600px) {
-      body {
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 0;
-    }
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
   }
+}
 
-
-    @media (min-width: 768px) {
-      body {
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 0;
-    }
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
   }
-
-
-
+}
