@@ -8,9 +8,11 @@
   border: 1px solid rgba(255, 255, 255, .06);
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 60%;          
+  max-width: 800px;   
   box-sizing: border-box;
-  top: -400px;
+  margin: 0 auto 2rem; 
+  top: -380px;         
 }
 
 .transport-header-controls {
@@ -104,7 +106,7 @@
   .center-generate-control-button,
   .transport-btn {
     font-size: 8px;
-    padding: 0px;
+    padding: 2px;
     max-width: 140px;
   }
 

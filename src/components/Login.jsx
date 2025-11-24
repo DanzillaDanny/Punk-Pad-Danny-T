@@ -1,5 +1,7 @@
-import { useState } from "react";
+// src/components/Login.jsx
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -8,33 +10,54 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-  navigate("/");
+
+    console.log("Login submitted:", { email, password });
+    navigate("/"); 
   }
 
   return (
-    <div className="signup-container"> 
-    <section className="signup-form">
-      <h2>Log in</h2>
-      {/* Use handleSubmit for authorization */}
-        <form onSubmit={handleSubmit} className="auth__form">
+    <div className="auth-page">
+      <section className="auth-card">
+        <h2 className="auth-title">Log In</h2>
+
+        <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} 
-              required/>
+            <label htmlFor="login-email">Email</label>
+            <input
+              type="email"
+              id="login-email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
+
           <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} 
-              required minLength={6}/>
+            <label htmlFor="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={6}
+            />
           </div>
-          <button type="submit" className="submit-btn">Log In</button>
+
+          <button type="submit" className="auth-submit">
+            Log In
+          </button>
         </form>
-        <p className="signup-link">No account? 
-          <Link to="/Signup" className="link">Create Account</Link>
+
+        <p className="auth-footer">
+          No account?
+          <Link to="/Signup" className="auth-link">
+            Create Account
+          </Link>
         </p>
       </section>
     </div>
   );
-}; 
+};
 
 export default Login;
