@@ -1,28 +1,36 @@
 import { useState } from "react";
 
-const Signup = ({ onSuccess, onSwap }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [dob, setDob] = useState("");
+const Signup = () => {
+ // State variables for user input
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  function submit(e) {
-    e.preventDefault();
-    // TODO: real signup; for now, pretend success
-    onSuccess?.({ email, dob });
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default browser page reload
+  };
 
   return (
-    <section className="panel auth">
+    <div className= "signup-container">
+      {/*onSubmit event handler*/}
+      <form className="signup-form" onSubmit={handleSubmit}>
       <h2>Create account</h2>
-      <form onSubmit={submit} className="auth__form">
-        <label>Email<input type="email" value={email} onChange={e=>setEmail(e.target.value)} required /></label>
-        <label>Password<input type="password" value={password} onChange={e=>setPassword(e.target.value)} required minLength={6} /></label>
-        <label>Date of birth<input type="date" value={dob} onChange={e=>setDob(e.target.value)} /></label>
-        <button type="submit" className="btn primary">Sign up</button>
-      </form>
-      <p className="auth__swap">Already have an account? <button type="button" className="link" onClick={onSwap}>Log in</button></p>
-    </section>
+      <div className="form-group">
+        <label>
+        Username
+        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required/>
+        </label>
+        </div>
+        <div className="form-group"><label htmlFor="email">Email</label>
+        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}required/>
+        </div>
+        <div className="form-group"><label htmlFor="password">Password</label>
+        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}required/>
+        </div>
+        <button type="submit" className="submit-btn">Submit</button>
+    </form>
+    </div>
   );
-}
+};
 
-export default function Signup;
+export default Signup;

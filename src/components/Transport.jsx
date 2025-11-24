@@ -1,11 +1,8 @@
 import React from "react";
+import "./Transport.css"
 
 const Transport = ({
-    isPlaying,
-    onPlay,
-    onStop,
     onSave,
-    onExport,
     progression,
     onGenerate,
     genres,
@@ -17,40 +14,45 @@ const Transport = ({
 }) => {
     return (
         <div className = "transport-window">
-             {/*chord display*/}
-        <div className = "chord-display">
+        <div className="chord-display">
             {/*display chords separatd or a message if empty*/}
-        {progression.length ? progression.join("|") : "No chords yet"}  
+            {progression.length ? (
+                progression.map((chord, index) => (
+                    <React.Fragment key={index}>
+                    <span key={index} className="chord-letter">{chord}</span>
+                    {index<progression.length -1 && (
+                    <span className="chord-separator">|</span>
+                )}
+                </React.Fragment>
+            ))
+        ):(
+           []
+            )}
         </div>
-        {/*manages transport layout*/}
+        {/*manages transport layout (header controls) */}
         <div className="transport-header-controls">
-            {/*main genre positioned on the left side of the transport*/}
-<div className = "genre-controls">
-    {/*main genre dropdown (uses props */}
-<select value={selectedGenre} onChange={(e) => onGenreChange(e.target.value)}>
-    {genres.map(genre => (
-        <option key={genre} value={genre}>{genre}</option>
-    ))}
-    </select>
-    {/* Sub-Genre Dropdown (uses props) */}
-            <select value={selectedSubGenre} onChange={(e) => onSubGenreChange(e.target.value)} disabled={!selectedGenre}>
-                {subGenres.map(subGenre => (
-                    <option key={subGenre} value={subGenre}>{subGenre}</option>
-                ))}
-            </select>
-        <button onClick={onGenerate}>Generate Chords</button>
+            <div className="genre-controls">
+                {/*main genre dropdown */}
+                <select value={selectedGenre} onChange={(e) => onGenreChange(e.target.value)}>
+                    {genres.map(genre => (
+                        <option key={genre} value={genre}>{genre}</option>
+                    ))}
+                </select>
+                {/* Sub-Genre Dropdown */}
+                <select value={selectedSubGenre} onChange={(e) => onSubGenreChange(e.target.value)} disabled={!selectedGenre}>
+                    {subGenres.map(subGenre => (
+                        <option key={subGenre} value={subGenre}>{subGenre}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="center-generate-control">
+                <button onClick={onGenerate} className="transport-btn">Generate Chords</button>
+            </div>
+            <div className="control-buttons">
+                <button onClick={onSave} className="transport-btn">Add To Favorites</button>
+            </div>
         </div>
-
-        {/*Play, Save, Export on the top right of transport window.*/}
-        <div className="control-buttons">
-        <button onClick={onSave}>Save</button> 
-        <button onClick = {onExport}>Export</button>   
-        <button onClick = {isPlaying ? onStop : onPlay}>
-        {isPlaying ? 'Stop' : 'Play'}
-        </button>
-        </div>
-        </div>
-        </div>
+    </div>
     );
 };
 

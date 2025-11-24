@@ -1,1 +1,0 @@
-//a wrapper component for consistent page structure or layout styling.

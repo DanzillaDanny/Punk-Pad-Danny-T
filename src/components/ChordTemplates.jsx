@@ -1,5 +1,5 @@
 // Pop-punk / emo templates
-const PopPunk = {
+const PopPunkData = {
   PopPunk: [
     ["I", "V", "vi", "IV"],
     ["I", "IV", "V", "vi"],
@@ -30,7 +30,7 @@ const PopPunk = {
 };
 
 // Punk templates
-const Punk = {
+const PunkData = {
   classic_70s: [
     ["I", "IV", "V"],
     ["I", "bVII", "IV"],
@@ -57,16 +57,9 @@ const Punk = {
   ],
 };
 
-export const CHORD_TEMPLATES = {
-  "Pop Punk": { // Main Genre Key
-    PopPunk: [["I", "V", "vi", "IV"], ["I", "IV", "V", "vi"]],
-    EmoPop: [["vi", "IV", "I", "V"], ["vi", "V", "IV", "I"]],
-    ModernRevival: [["I", "V", "vi", "bVII"], ["i", "bVII", "bVI", "bVII"]],
-  },
-  "Punk": { // Main Genre Key
-    classic_70s: [["I", "IV", "V"], ["I", "bVII", "IV"]],
-    hardcore_80s: [["I", "bVII", "IV", "V"], ["i", "bVI", "bVII"]],
-    skate_90s: [["I", "V", "bVII", "IV"], ["I", "bVII", "IV"]],
-    dark_punk: [["i", "bVII", "bVI", "bVII"], ["i", "bVI", "bVII", "IV"]],
-  },
+const CHORD_TEMPLATES = {
+  "Pop Punk": PopPunkData,
+  "Punk": PunkData,
 };
+
+export default CHORD_TEMPLATES;

@@ -1,26 +1,40 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = ({ onSuccess, onSwap }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  function submit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    // TODO: plug in real auth; for now, pretend success
-    onSuccess?.({ email });
+  navigate("/");
   }
 
   return (
-    <section className="panel auth">
+    <div className="signup-container"> 
+    <section className="signup-form">
       <h2>Log in</h2>
-      <form onSubmit={submit} className="auth__form">
-        <label>Email<input type="email" value={email} onChange={e=>setEmail(e.target.value)} required /></label>
-        <label>Password<input type="password" value={password} onChange={e=>setPassword(e.target.value)} required minLength={6} /></label>
-        <button type="submit" className="btn primary">Log in</button>
-      </form>
-      <p className="auth__swap">No account? <button type="button" className="link" onClick={onSwap}>Create one</button></p>
-    </section>
+      {/* Use handleSubmit for authorization */}
+        <form onSubmit={handleSubmit} className="auth__form">
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} 
+              required/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} 
+              required minLength={6}/>
+          </div>
+          <button type="submit" className="submit-btn">Log In</button>
+        </form>
+        <p className="signup-link">No account? 
+          <Link to="/signup" className="link">Create Account</Link>
+        </p>
+      </section>
+    </div>
   );
-}
+}; 
 
-export default function Login;
+export default Login;

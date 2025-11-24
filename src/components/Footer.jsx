@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
-function Footer () {
+const Footer = () => {
     return (
-    <footer className="full-width-bar">
-  <div className="bar-center">© {new Date().getFullYear()} Punk Pad</div>
-</footer>
+        <footer>
+                  <Link to= "/About" className="about">About</Link>
+                <div className="bar-center">© {new Date().getFullYear()} Punk Pad</div> 
+        </footer>
     );
-}
+};
 
 export default Footer;
