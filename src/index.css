@@ -7,9 +7,9 @@ body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  font-family: Arial, sans-serif;
   color: #333;
   background-color: #fff;
+  overflow-x: hidden;
 }
 
 main {
@@ -44,20 +44,18 @@ button {
 .panel {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* centers Pedal + Transport horizontally */
+  align-items: center;  
 }
 
-/* Container for the entire signup page layout */
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f2f5; 
-  padding: 20px; 
+  background-color: #f0f2f5;
 }
 
-/* Styles for the form */
+
 .signup-form {
   background: #fff;
   padding: 40px;
@@ -69,13 +67,8 @@ button {
 }
 
 .signup-form h2 {
-  margin-bottom: 20px;
   color: #333;
   text-align: center;
-}
-
-.form-group {
-  margin-bottom: 15px;
 }
 
 .form-group label {
@@ -94,14 +87,12 @@ button {
   font-size: 1rem;
 }
 
-/* Highlight input fields when the user clicks on them */
 .form-group input:focus {
   border-color: #007bff; 
   outline: none; 
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* Styling for the submit button */
 .submit-btn {
   width: 100%;
   padding: 12px;
@@ -124,8 +115,22 @@ button {
   cursor: not-allowed;
 }
 
+@media (max-width: 600px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+    }
+  }
 
 
+    @media (min-width: 768px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+    }
+  }
 
 
 

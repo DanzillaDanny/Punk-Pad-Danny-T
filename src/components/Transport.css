@@ -1,4 +1,3 @@
-/* ===== Transport Window ===== */
 .transport-window {
   position: relative;
   z-index: 10;
@@ -57,7 +56,6 @@
   appearance: none;
   background-color: #0f1520; 
   color: #ffffff;
-  font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
   border: 1px solid rgba(255, 255, 255, .3);
   padding: 8px 12px; 
@@ -79,7 +77,6 @@
   top: 65%;
   left: 50%; 
   transform: translate(-50%, -50%);
-  font-family: 'Consolas', 'Courier New',Courier, monospace;
   text-transform: uppercase;
   font-size: 60px; 
   color: #ffffff;
@@ -90,9 +87,9 @@
 @media (max-width: 480px) {
   .transport-window {
     position: relative;      
-    transform: translateX(-8.7%);     
-    top: -160px;              
-    width: 90%;               
+    transform: translateX(-6.6%);     
+    top: -152px;              
+    width: 90.2%;               
     height: 80px;
   }
 

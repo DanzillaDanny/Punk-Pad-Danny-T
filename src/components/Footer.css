@@ -28,3 +28,9 @@ footer {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
   transform: skewX(-5deg); 
 }
+
+@media (max-width: 600px) {
+footer {
+transform: translateY(28%)
+    }
+}

@@ -17,7 +17,7 @@
 
   padding: 24px 22px 28px;
 
-  display: flex;               /* stack head/body/footer inside */
+  display: flex;              
   flex-direction: column;
   justify-content: space-between;
 }
@@ -32,18 +32,13 @@
 }
 
 .pedal-body {
-  /* Give the body space */
   flex-grow: 1; 
   display: block; 
-  min-height: 150px; /* Ensure a minimum height if flex-grow isn't working */
-  
-  /* Add padding to center knobs visually within the body area */
+  min-height: 150px; 
   padding-top: 20px;
 }
 
-/* Also ensure the main pedal container uses flexbox to stack the head, body, and footer */
 .pedal {
-  /* ... existing styles ... */
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
@@ -128,12 +123,11 @@
   mask-image: linear-gradient(to right, black 50%, transparent 100%);
 }
 
-/* ===== Mobile: Galaxy S / small phones ===== */
 @media (max-width: 412px) {
   .pedal {
     top: 40%;
-    right: 8%;
-    width: 185%;
+    right: 6%;
+    width: 200%;
     max-width: 340px;              
     height: auto;                   
     aspect-ratio: 878.57 / 520;    

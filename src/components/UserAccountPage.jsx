@@ -4,7 +4,7 @@ import React from "react";
 
 const UserAccountPage = ({favorites, onDelete, onRename}) => {
   return (
-    // Reusing the signup styles for a consistent card look
+    // Reusing the signup/create account styles for a consistent card look
     <div className="signup-container"> 
       <section className="signup-form">
         <h2>My Favorite Progressions</h2>
@@ -21,8 +21,7 @@ const UserAccountPage = ({favorites, onDelete, onRename}) => {
           </ul>
         ) : (
           <p>You haven't saved any chord progressions yet!</p>
-        )}
-   
+        )}  
       </section>
     </div>
   );
