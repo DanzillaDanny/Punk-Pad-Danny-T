@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer>
                   <Link to= "/About" className="about">About</Link>
-                <div className="bar-center">© {new Date().getFullYear()} Punk Pad</div> 
+               <div>Punk Pad 2025</div>
         </footer>
     );
 };

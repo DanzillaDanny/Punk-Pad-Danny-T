@@ -33,17 +33,28 @@ const handleDeleteFavorite = (id) => {
   };
 
   return (
-    <Router>
-      <div className="page">
-        <Header />
-          <Routes>
-            {/* The main functionality is rendered at the root URL "/Home" here */}
-            <Route path="/" element={<Home favorites={favorites} setFavorites={setFavorites}  />} /> 
-            
-            {/* Other routes for pages */}
-            <Route path="/About" element={<About />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
+  <Router>
+    <div className="page">
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home favorites={favorites} setFavorites={setFavorites} />}
+        />
+                <Route
+          path="/user-account"
+          element={
+            <UserAccountPage
+              favorites={favorites}
+              setFavorites={setFavorites}
+              onDelete={handleDeleteFavorite}
+              onRename={handleRenameFavorite}
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
             <Route path="/UserAccountPage" element={<UserAccountPage favorites={favorites} setFavorites={setFavorites} 
             onDelete={handleDeleteFavorite} onRename={handleRenameFavorite} />} /> 
           </Routes>

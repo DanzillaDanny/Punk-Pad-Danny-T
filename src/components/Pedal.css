@@ -1,13 +1,17 @@
 /* ===== Pedal base ===== */
 .pedal {
   position: relative;
-  width: 878.57px;
-  height: 520px;
+  /* Use max-width for better initial responsiveness */
+  max-width: 878.57px;
+  /* Define aspect ratio globally for consistent scaling */
+  aspect-ratio: 878.57 / 520;
+  width: 90%; /* Start responsive */
+  height: auto;
   margin: 40px auto 80px;
   border-radius: 24px;
-  background-image: url("../pedalcolor.png");
-  background-size: 879px 520px;
-  background-repeat: repeat;
+  background-image: url("./pedalcolor.png");
+  background-size: 100% 100%; /* Make background image cover container responsively */
+  background-repeat: no-repeat; /* Changed from repeat to no-repeat based on size adjustment */
 
   box-shadow:
     0 40px 60px rgba(0, 0, 0, .35),
@@ -17,7 +21,7 @@
 
   padding: 24px 22px 28px;
 
-  display: flex;              
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -32,16 +36,10 @@
 }
 
 .pedal-body {
-  flex-grow: 1; 
-  display: block; 
-  min-height: 150px; 
+  flex-grow: 1;
+  display: block;
+  min-height: 150px;
   padding-top: 20px;
-}
-
-.pedal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
 }
 
 .pedal-led {
@@ -94,6 +92,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  background-image: url("./chromeButton.png");
 }
 
 .pedal-stomp:active {
@@ -115,7 +114,6 @@
   letter-spacing: .04em;
   text-transform: uppercase;
   font-size: 48px;
-  text-emphasis: bold;
 }
 
 .fadedgradient {
@@ -128,27 +126,27 @@
     top: 40%;
     right: 6%;
     width: 200%;
-    max-width: 340px;              
-    height: auto;                   
-    aspect-ratio: 878.57 / 520;    
+    max-width: 340px;
+    height: auto;
+    /* aspect-ratio inherited from global definition */
     background-size: 100% 100%;
     margin: 16px auto 0;
-    padding: 16px 14px 60px;        
+    padding: 16px 14px 60px;
   }
 
   .pedal-head {
-transform: translateY(-5px);
+    transform: translateY(-5px);
     height: auto;
-    font-size: 1.8rem;             
+    font-size: 1.8rem;
     text-align: center;
   }
 
   .pedal-led {
-    top: 45px;                      
+    top: 45px;
   }
 
   .pedal-stomp-wrap {
     transform: scale(.65);
-    bottom: 5px;                   
+    bottom: 5px;
   }
 }
