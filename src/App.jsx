@@ -7,26 +7,24 @@ import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Login from "./components/Login.jsx";
 import Signup from "./components/Signup.jsx";
-import UserAccountPage from "./components/userAccountPage.jsx";
+import UserAccountPage from "./components/UserAccountPage.jsx";
 
 
 const App = () => {
 const [favorites, setFavorites] = useState([]);
 
 const handleDeleteFavorite = (id) => {
-    // Filter the current list, keeping only items that do NOT match the ID
     const updatedFavorites = favorites.filter(fav => fav.id !== id);
-    setFavorites(updatedFavorites); // Update the state
+    setFavorites(updatedFavorites);
   };
 
-  // --- RENAME LOGIC (Placeholder for now, requires a UI modal/input) ---
   const handleRenameFavorite = (id) => {
-    // This is where you would open a modal/prompt the user for a new name
+  
     const newName = prompt("Enter a new name for this progression:");
     if (newName && newName.trim() !== "") {
         const updatedFavorites = favorites.map(fav => {
             if (fav.id === id) {
-                return { ...fav, name: newName.trim() }; // Update the name
+                return { ...fav, name: newName.trim() };
             }
             return fav;
         });
